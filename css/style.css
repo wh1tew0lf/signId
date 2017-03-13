@@ -3,21 +3,30 @@ Author: Daniel Yuzek
 */
 
 .banner{
-	background: url('../img/bg-banner.jpg') no-repeat center top;
+	background: url('../img/bg-banner.jpg') no-repeat scroll center top;
 	background-size: cover;
 	min-height: 580px;
 	position: relative;	
+	display: block;
 }
 
 .bg-color{
 	background: rgba(0,113,188, 0.20);
 	min-height: 580px;
+	height: 100%;
 }
 
 .navbar {
 	margin-bottom: 0px;
 }
 
+
+.text-modal-wait {
+	color: #999;
+	font-family: "Roboto";
+	font-size: 14px;
+	padding-bottom: 40px;
+}
 
 .text-dec{
 	font-size:35px;
@@ -29,8 +38,8 @@ Author: Daniel Yuzek
 }
 
 .small-text{
-	font-size: 18px;
-	font-family: 'Myriad Pro';
+	font-size: 14px;
+	font-family: 'Roboto';
 	color: #fff;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -54,7 +63,6 @@ Author: Daniel Yuzek
 	display: block;
 	width: 200px;
 	height: 60px;
-    margin-right: 20px;
 }
 
 .btn-group li.btn-appstore a {
@@ -66,6 +74,173 @@ Author: Daniel Yuzek
 	background-size: 85%;
 }
 
+.btn-signin {
+
+}
+
+.btn-next {
+	margin-top: -25px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+
+.close-cross {
+	position: relative;
+	top: 0px;
+	right: 0px;
+	margin-top: -11px;
+	margin-right: -6px;
+}
+
+
+/* BLOOR WHOLE BACKGROUD IN MODAL MODE */
+
+
+/*LOGO on modal*/
+.logo-on-modal {
+	padding: 20px 5px;
+	max-width: 100%;
+}
+
+
+body.modal-open .supreme-container{
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}
+
+
+
+/*	MODAL WINDOW ################### */
+#sign-verification {
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 300px;
+}
+
+#login-email-verification {
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 300px;
+}
+#email-input-container {
+	font-family:'roboto';
+	width:100%; 
+	display:block; 
+	background:#FFF;
+}
+#email-input-container .group {
+	position:relative; 
+  	margin-bottom:45px; 
+  	margin-top: 0px;
+}
+
+#email-input-container input {
+	font-size:18px;
+	padding:10px 10px 10px 1px;
+	display:block;
+	width:100%;
+	border:none;
+	border-bottom:1px solid #757575;
+}
+
+#email-input-container input:focus { 
+	outline:none; 
+}
+
+
+/*	LABEL ###################### */
+#email-input-container label {
+	color:#999; 
+	font-size:14px;
+	font-weight:normal;
+	position:absolute;
+	pointer-events:none;
+	left:1px;
+	top: 18px;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+#email-input-container input:focus ~ label, #email-input-container input:valid ~ label        {
+	top:-12px;	
+	font-size:12px;
+	color:#999;
+}
+
+/*	BARS ###################### */
+
+#email-input-container .bar { 
+	position:relative;
+	display:block;
+	width:100%;
+}
+
+#email-input-container .bar:before, #email-input-container .bar:after     {
+	content:'';
+	height:2px; 
+	width:0;
+	bottom:1px; 
+	position:absolute;
+	background:#999; 
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+#email-input-container .bar:before {
+	left:50%;
+}
+#email-input-container .bar:after {
+	right:50%; 
+}
+
+
+/* active state */
+#email-input-container input:focus ~ .bar:before, #email-input-container input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+#email-input-container .highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+#email-input-container input:focus ~ .highlight {
+	-webkit-animation:inputHighlighter 0.3s ease;
+	-moz-animation:inputHighlighter 0.3s ease;
+	animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS for modal ================ */
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+
+
+
+
 
 @media (min-width: 20px) and (max-width: 450px) {
 	.text-dec{
@@ -75,5 +250,9 @@ Author: Daniel Yuzek
 		text-transform: uppercase;
 		color: #fff;
 		font-family: 'Titillium Web';
+	}
+	.small-text{
+		font-size: 12px;
+
 	}
 }

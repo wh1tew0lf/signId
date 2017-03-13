@@ -14,6 +14,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Store Badges 
     <link rel="stylesheet" href="https://rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css"> 
     -->
@@ -26,47 +27,105 @@
     <![endif]-->
   </head> 
   <body>
-    
-    <!-- navigation bar -->
-    <div class="navbar navbar-static-top">
-      <div class="container">
-          <div class="navbar-header">
-            <a href="#" class="navbar-brand">Logo</a>
-            <div class="pull-right">
-                <div class="nav navbar-nav navbar-right ">
-                  <a class="btn btn-primary" href="#">Log in</a>
-                </div>
+    <div class="supreme-container">
+      <!-- navigation bar -->
+      <div class="navbar navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+              <a href="#" class="navbar-brand">Logo</a>
+              <div class="pull-right">
+                  <div class="nav navbar-nav navbar-right ">
+                    <button type="button" class="btn btn-signin" data-toggle="modal" data-target="#login-email-verification">Log in</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+      <!--bannner-->
+      <div class="banner" class="container-fluid">
+        <div class="bg-color">
+          <div class="container">
+            <div class="row">
+              <div class="banner-text text-center">
+                  <h1 class="text-dec">SingInCloud - realtime, cloud-based handwritten signature authentication platform
+                  </h1>
+                  <p class="small-text">Sign Up With App From</p>
+                    
+                  <div class="container">
+                    <ul class="btn-group list-inline">
+                      <li class="btn-appstore"><a href="#"></a></li>
+                      <li class="btn-googleplay"><a href="#"></a></li>
+                    </ul>
+                  </div>                
+              </div>
             </div>
           </div>
+        </div>
       </div>
+      <!--/banner-->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.js"></script>
     </div>
     
-    <!--bannner-->
-    <div class="banner">
-      <div class="bg-color">
-        <div class="container">
-          <div class="row">
-            <div class="banner-text text-center">
-                <h1 class="text-dec">SingInCloud - realtime, cloud-based handwritten signature authentication platform
-                </h1>
-                <p class="small-text">Sign Up With App From</p>
-                  
-                <div class="container">
-                  <ul class="btn-group list-inline">
-                    <li class="btn-appstore"><a href="#"></a></li>
-                    <li class="btn-googleplay"><a href="#"></a></li>
-                  </ul>
-                </div>                
+
+    <!-- EMAIL ENTER MODAL -->
+    <div class="modal fade" id="login-email-verification">
+      <div class="modal-dialog modal-sm center-block">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+          </div>
+          <!-- form for entering email -->
+          <div class="modal-body">
+            <button  class="close close-cross" type="button" data-dismiss="modal">&times</button>
+            <div class="container-fluid " id="email-input-container">
+              
+              <a href="#"><img class="logo-on-modal" src="http://cdn.getintenso.com/demo/media/logo/image/demo/loremipsum-logo.png" alt="logo"></a> 
+                <form>
+                  <div class="group">
+                    <input type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Please enter Email</label>
+                  </div>
+                  <button class="btn btn-next center-block" type="button" data-toggle="modal" data-dismiss="modal" data-target="#sign-verification">  
+                  NEXT 
+                  </button>
+                </form> 
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--/banner-->
+    <!-- /EMAIL ENTER MODAL -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.js"></script>
+    <!-- SIGN MODAL -->
+    <div class="modal fade" id="sign-verification">
+      <div class="modal-dialog modal-sm center-block">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+          </div>
+          <!-- form for entering email -->
+          <div class="modal-body">
+            <button  class="close close-cross" type="button" data-dismiss="modal">&times</button>
+            <div class="container-fluid " id="email-input-container">
+              
+              <a href="#"><img class="logo-on-modal" src="http://cdn.getintenso.com/demo/media/logo/image/demo/loremipsum-logo.png" alt="logo"></a>
+                <form >
+                  <div class="text-modal-wait">
+                    <p align="center">Please Sign on device</p>
+                  </div>
+                </form> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN MODAL -->
   </body>
 </html>
