@@ -1,0 +1,287 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	
+	/*Disable Animation on Mobile Devices*/
+	.animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+
+	/* navbar */
+
+	.line-top {
+		padding: 15px 0;
+		min-height: 55px;
+		color: #fff;
+		background: #0071bb;
+		box-sizing: border-box;
+	}
+
+	.line-top .navbar-collapse {
+		position: relative;
+		margin: 0 -15px;
+		padding: 0;
+		overflow-y: hidden;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		z-index: 999;
+	}
+
+	.top-nav {
+		margin: 15px 0;
+		padding: 0;
+		overflow-y: hidden;
+	}
+
+	.top-nav li {
+		float: left;
+		display: block;
+		padding: 5px 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	.top-nav li a,
+	.top-nav li a:hover {
+		padding: 0;
+	}
+
+	.line-top_buttons {
+		float: none;
+		padding-bottom: 15px;
+		text-align: center;
+	}
+
+	/* userbar */
+
+	.userbar .user-info {
+		padding-top: 15px;
+		max-width: calc(100% - 85px)
+	}
+
+	.userbar .user-name h3 {
+		display: inline-block;
+		font-size: 24px;
+	}
+
+	.userbar .user-email span {
+
+	}
+
+	/* device */
+
+	.device-title {
+		margin-bottom: 45px;
+	}
+
+	.devices-contant {
+		padding: 0;
+	}
+
+	.devices-list {
+		padding: 0;
+	}
+
+	.device {
+		padding: 0;
+		min-height: 100%;
+		border: none;
+		overflow-y: hidden;
+	}
+
+	.device .device_btn-group {
+		text-align: center;
+	}
+
+	.device .device_btn-group .btn {
+		float: none;	
+		margin: 5px 0;
+	}
+	
+	.device .device_info {
+		padding: 10px 0;
+	}
+
+	.device .device_info b, 
+	.device .device_info span {
+		color: #fff;
+		text-align: center;
+	}
+
+	.device.main-device .device_info b,
+	.device.main-device .device_info span {
+		color: #fff;
+	}
+
+	.device .device_info:after {
+		position: absolute;
+		top: calc(50% - 7px);
+		right: 15px;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		background: #999;
+		content: "";
+	}
+
+	.device.online-device .device_info:after  {	background: #8bc53f; }
+	.device.offline-device .device_info:after { background: #faaf3b; }
+
+	/* activity */
+
+	.activity-tabs {
+		margin-bottom: 45px;
+	}
+
+	.activity-list {
+		margin: 0 -15px;
+	}
+
+	.collapse-btn {
+		display: block;
+		position: relative;
+		padding: 10px 0;
+		width: 100%;
+		min-height: 35px;
+		color: #fff;
+		border: none;
+		border-bottom: 1px solid #888888;
+		outline: none;
+		background: #808080;
+	}
+
+	.collapse-btn:before {
+		position: absolute;
+		top: calc(50% - 7px);
+		left: 15px;
+		width: 15px;
+		height: 15px;
+		background: url(../img/icons/plus.svg);
+		content: "";
+	}
+
+
+	.collapse-btn.open {
+		border-bottom: 1px solid #29aae1;
+		background: #29aae1;
+	}
+
+	.collapse-btn.open:before {
+		background: url(../img/icons/minus.svg);
+	}
+
+	.activity-list_row {
+		margin: 15px 0;
+		padding: 0;
+		overflow-y: hidden;
+		box-sizing: border-box;
+	}
+
+	.activity-list_row:after {
+		clear: both;
+	}
+
+	.activity-list .device-column,
+	.activity-list .event-column,
+	.activity-list .where-column {
+		width: 100%;
+		float: left;
+		height: 28px;
+		line-height: 28px;
+	}
+
+	.activity-list .device-column:before { content: "Device:"; }
+	.activity-list .where-column:before { content: "Where:"; }
+	.activity-list .event-column:before { content: "Event:"; }
+
+	.activity-list .event-column:before,
+	.activity-list .device-column:before,
+	.activity-list .where-column:before {
+		vertical-align: bottom;
+		float: left;
+		text-transform: uppercase;
+		font-weight: 600;
+		color: #29aae1;
+	}
+
+	.activity-list .event-column span,
+	.activity-list .device-column span,
+	.activity-list .where-column span {
+		vertical-align: bottom;
+		float: left;
+		padding: 2px 0 0 5px;
+		text-align: left;
+		border: none;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+	.devices-contant .collapse,
+	.activity-contant .collapse {
+		display: block;
+	}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

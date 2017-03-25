@@ -1,0 +1,24 @@
+{
+  "name": "full_fridge",
+  "authors": [
+    "vadamk <v.kravchuk@aol.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "1.11.2",
+    "html5shiv": "^3.7.3",
+    "font-awesome": "fontawesome#^4.7.0",
+    "respond": "^1.4.2"
+  }
+}

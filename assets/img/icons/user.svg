@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 85.8 85.8" enable-background="new 0 0 85.8 85.8" xml:space="preserve">
+<g>
+	<defs>
+		<circle id="SVGID_1_" cx="42.9" cy="42.9" r="42.9"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_2_)">
+		<circle fill="#FFFFFF" cx="42.9" cy="42.9" r="42.9"/>
+	</g>
+	<circle clip-path="url(#SVGID_2_)" fill="#0071BB" cx="42.9" cy="89.3" r="35.3"/>
+	<circle clip-path="url(#SVGID_2_)" fill="#0071BB" cx="42.9" cy="37.8" r="17.2"/>
+</g>
+</svg>
