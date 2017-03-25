@@ -1,6 +1,6 @@
 <?php
 
-$url = 'http://api.signtologin.com/api/v3/';
+$url = '';
 
 if (isset($_GET['action'])) {
     $url = 'http://api.signtologin.com/api/v3/' . urldecode($_GET['action']);

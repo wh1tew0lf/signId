@@ -11,22 +11,22 @@
 	<title>Заголовок</title>
 	<meta name="description" content="">
 
-	<link rel="shortcut icon" href="assets/img/favicon/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="./assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="./assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./assets/img/favicon/apple-touch-icon-114x114.png">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="format-detection" content="telephone=no">
 
 	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600"> -->
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
 	
-	<link rel="stylesheet" href="assets/css/normalize.css">
-	<link rel="stylesheet" href="assets/css/fonts.css">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="assets/css/media.css">
+	<link rel="stylesheet" href="./assets/css/normalize.css">
+	<link rel="stylesheet" href="./assets/css/fonts.css">
+	<link rel="stylesheet" href="./assets/css/main.css">
+	<link rel="stylesheet" href="./assets/css/media.css">
 
 </head>
 
@@ -41,7 +41,7 @@
 					<div class="logo navbar-header col-md-2">
 						<a href="#">SingInCloud</a>
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<img src="assets/img/icons/nav.svg" alt="">
+							<img src="./assets/img/icons/nav.svg" alt="">
 						</button>
 					</div>
 
@@ -61,7 +61,7 @@
 			<div class="userbar container-fluid">
 				<div class="container">
 					<div class="user-image">
-						<img src="assets/img/icons/user.png" class="img-responsive" alt="User image">
+						<img src="./assets/img/icons/user.png" class="img-responsive" alt="User image">
 					</div>
 					<div class="user-info">
 						<div class="user-name">
@@ -205,14 +205,14 @@
 	<script src="bower_components/html5shiv/es5-shim.min.js"></script>
 	<script src="bower_components/html5shiv/html5shiv.min.js"></script>
 	<script src="bower_components/html5shiv/html5shiv-printshiv.min.js"></script>
-	<script src="bower_components/respond/dest/respond.min.js"></script>
+	<script src="./bower_components/respond/dest/respond.min.js"></script>
 	<![endif]-->
 
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		
-	<script src="assets/js/main.js"></script>
-	<script src="js/activity.js"></script>
+	<script src="./assets/js/main.js"></script>
+	<script src="./js/activity.js"></script>
 	
 </body>
 </html>

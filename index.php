@@ -1,2 +1,7 @@
 <?php
-phpinfo();
+
+require_once './core/bootstrap.php';
+
+$app = new \App();
+
+$app->run();
