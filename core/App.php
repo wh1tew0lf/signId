@@ -27,6 +27,10 @@ class App {
         ), $config);
     }
 
+    public function process_state() {
+        session_start();
+    }
+
     public function parse_url() {
         $this->_request = parse_url($_SERVER['REQUEST_URI']);
         if (isset($this->_request['query'])) {
@@ -38,36 +42,40 @@ class App {
         }
     }
 
-    public function process_state() {
-        session_start();
-    }
-
     public function render() {
-        $template = "{$this->getConfig('corePath')}/tpls/{$this->getTemplate()}.php";
-        if ($template && file_exists($template)) {
-            require_once $template;
-        } else {
-            require_once "tpls/main.php";
+        if ($this->getView()) {
+            $view = "\\views\\" . ucfirst($this->getView());
+            if (class_exists($view)) {
+                $view = new $view($this);
+            }
         }
+
+        if (!isset($view) || !is_object($view)) {
+            $view = new \views\Index($this);
+        }
+
+        $view->render();
     }
 
 
     public function run() {
-        $this->parse_url();
         $this->process_state();
+        $this->parse_url();
         $this->render();
     }
 
     /**
-     * Returns template name, than parsed from request
+     * Returns view name, than parsed from request
      * @return bool|string
      */
-    public function getTemplate() {
-        if (!isset($this->_request['path'])) {
+    public function getView() {
+        if (empty($this->_request['path'])) {
             return false;
         }
         $info = pathinfo($this->_request['path']);
-        return ('.' === $info['dirname'] ? '' : $info['dirname']) . $info['filename'];
+        $dir = isset($info['dirname']) ? $info['dirname'] : '';
+        $file = isset($info['filename']) ? $info['filename'] : '';
+        return ('.' === $dir ? '' : $dir) . $file;
     }
 
     /**
