@@ -2,10 +2,10 @@
 
 namespace views;
 
-class Index extends BaseView {
+class Dashboard extends BaseView {
 
     public function getTemplate() {
-        return 'index';
+        return 'dashboard';
     }
 
 }
