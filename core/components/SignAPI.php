@@ -4,6 +4,9 @@ namespace components;
 
 class SignAPI {
 
+    /** @var string API getaway */
+    private $_getaway = 'http://api.signtologin.com/api/v3/';
+
     /** @var array curl last request info */
     private $_info;
 
@@ -16,7 +19,13 @@ class SignAPI {
     /** @var array predefined headers */
     private $_headers = array();
 
-    private function makeRequest($url, $headers = array(), $options = array()) {
+    public function __construct($getaway = false) {
+        if (false !== $getaway) {
+            $this->_getaway = $getaway;
+        }
+    }
+
+    private function _makeRequest($url, $headers = array(), $options = array()) {
         $ch = curl_init();
 
         curl_setopt_array($ch, array_merge(array(
@@ -31,7 +40,7 @@ class SignAPI {
             CURLOPT_DNS_USE_GLOBAL_CACHE => false,
             CURLOPT_DNS_CACHE_TIMEOUT => 2,
             CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
-            CURLOPT_URL => $url,
+            CURLOPT_URL => $this->_getaway . ltrim($url, '/'),
             CURLOPT_HTTPHEADER => array_merge($headers, $this->_headers)
         ), $options));
 
@@ -40,15 +49,15 @@ class SignAPI {
         $this->_error = curl_error($ch);
         curl_close($ch);
 
-        return $this->_response;
+        return json_decode($this->_response, true);
     }
 
     public function get($url, $headers = array()) {
-        return $this->makeRequest($url, $headers);
+        return $this->_makeRequest($url, $headers);
     }
 
     public function post($url, $post, $headers = array()) {
-        return $this->makeRequest($url, $headers, array(
+        return $this->_makeRequest($url, $headers, array(
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $post
         ));
