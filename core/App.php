@@ -11,8 +11,16 @@ class App {
     /** @var array Array of request data and url */
     private $_request;
 
+    /** @var array|null User data */
+    private $_user;
+
+    /** @var \components\SignAPI api instance */
+    private $_api;
+
     public function __construct($config = array()) {
         $this->_config = array_merge(array(
+            'appName' => 'SignID',
+            'appVersion' => 'v1.0.0',
             'apiKey' => '9b0823c8c17cb8a397e8aa3977a4e83c856301686aef8ff66a15a2fbe78a3536',
             'apiUrl' => 'http://api.signtologin.com/api/v3/',
             'basePath' => dirname(dirname(__FILE__)), //better if index.php will set it
@@ -27,11 +35,24 @@ class App {
         ), $config);
     }
 
-    public function process_state() {
+    public function processState() {
         session_start();
+        $this->_api = new \components\SignAPI($this->getConfig('apiUrl'));
+        $this->_api->addHeader("apiKey: {$this->getConfig('apiKey')}");
+        if (!empty($_SESSION['token'])) {
+            $token = $_SESSION['token'];
+            $this->_api->addHeader("token: {$token}");
+            $response = $this->_api->get('/me');
+
+            if (empty($response['user'])) {
+                $this->_user = $response['user'];
+            } else {
+                var_dump($response);
+            }
+        }
     }
 
-    public function parse_url() {
+    public function parseUrl() {
         $this->_request = parse_url($_SERVER['REQUEST_URI']);
         if (isset($this->_request['query'])) {
             parse_str($this->_request['query'], $this->_request['variables']);
@@ -57,11 +78,49 @@ class App {
         $view->render();
     }
 
+    public function process() {
+        $action = isset($this->_request['path']) ?
+            trim(str_replace('api/', '', $this->_request['path']), '/') : '';
+
+        if (!empty($_POST)) {
+            $result = $this->_api->post($action, $_POST);
+        } else {
+            $result = $this->_api->get($action);
+        }
+
+        if (empty($result)) {
+            echo json_encode(array(
+                'error' => $this->_api->getError(),
+                'message' => 'Connection lost'
+            ));
+        } else {
+            echo json_encode($result);
+        }
+        die;
+    }
 
     public function run() {
-        $this->process_state();
-        $this->parse_url();
-        $this->render();
+        $this->processState();
+        $this->parseUrl();
+        if ($this->isWeb()) {
+            $this->render();
+        } elseif ($this->isApi()) {
+            $this->process();
+        } else {
+            die();
+        }
+    }
+
+    public function isWeb() {
+        return !$this->isApi();
+    }
+
+    public function isApi() {
+        if (empty($this->_request['path'])) {
+            return false;
+        }
+
+        return strstr($this->_request['path'], 'api/');
     }
 
     /**

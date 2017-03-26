@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<?php
+/** @var $this \views\Index */
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>SignId</title>
+    <title><?php echo $this->getOwner()->getConfig('appName'); ?></title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -25,13 +27,18 @@
                     <img class="navbar-brand"
                                  src="./img/logo.png"
                                  alt="logo">
-                    SignID
+                    <?php echo $this->getOwner()->getConfig('appName'); ?>
                 </a>
                 <div class="pull-right">
-                    <div class="nav navbar-nav navbar-right ">
+                    <div class="nav navbar-nav navbar-right">
+                        <?php //if ($this->getOwner()->) ?>
                         <button type="button" class="btn btn-signin" data-toggle="modal"
                                 data-target="#login-email-verification">LOG IN
                         </button>
+                        <?php //else: ?>
+                        <a href="#" class="btn btn-signin">DASHBOARD
+                        </a>
+                        <?php //endif; ?>
                     </div>
                 </div>
             </div>

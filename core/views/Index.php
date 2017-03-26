@@ -11,8 +11,16 @@ class Index {
     }
 
     public function render() {
-        $path = $this->_owner->getConfig('corePath');
+        $path = $this->getOwner()->getConfig('corePath');
 
-        require_once "{$path}/tpls/main.php";
+        require_once "{$path}/templates/index.php";
     }
+
+    /**
+     * @return \App
+     */
+    public function getOwner() {
+        return $this->_owner;
+    }
+
 }

@@ -10,8 +10,11 @@ class SignAPI {
     /** @var array curl last request info */
     private $_info;
 
-    /** @var mixed curl last request error */
+    /** @var string curl last request error */
     private $_error;
+
+    /** @var integer curl last request error code */
+    private $_errno;
 
     /** @var mixed curl last request content */
     private $_response;
@@ -28,7 +31,7 @@ class SignAPI {
     private function _makeRequest($url, $headers = array(), $options = array()) {
         $ch = curl_init();
 
-        curl_setopt_array($ch, array_merge(array(
+        curl_setopt_array($ch, $options + array(
             CURLOPT_TIMEOUT => 30,
             CURLOPT_AUTOREFERER => true,
             CURLOPT_RETURNTRANSFER => true,
@@ -42,11 +45,12 @@ class SignAPI {
             CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
             CURLOPT_URL => $this->_getaway . ltrim($url, '/'),
             CURLOPT_HTTPHEADER => array_merge($headers, $this->_headers)
-        ), $options));
+        ));
 
         $this->_response = curl_exec($ch);
         $this->_info = curl_getinfo($ch);
         $this->_error = curl_error($ch);
+        $this->_errno = curl_errno($ch);
         curl_close($ch);
 
         return json_decode($this->_response, true);
@@ -71,10 +75,17 @@ class SignAPI {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getError() {
         return $this->_error;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getErrno() {
+        return $this->_errno;
     }
 
     /**
