@@ -1,0 +1,19 @@
+{
+    "name": "wh1tew0lf/signid",
+    "description": "simple proof of concept signId example for SignInCloud.com (SIC :D)",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Volkov Danil",
+            "email": "volkovdanil91@gmail.com"
+        }
+    ],
+    "config": {
+        "vendor-dir": "core/vendor"
+    },
+    "autoload": {
+        "psr-4": {"": "core/"}
+    },
+    "require": {}
+}
