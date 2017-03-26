@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+/** @var $this \views\Index */
+?><!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -52,7 +54,7 @@
 							<li><a href="#">Reserved*</a></li>
 						</ul>
 						<div class="line-top_buttons">
-							<a href="#" class="btn btn-clear btn-invert">Log out</a>
+							<a href="logout.html" class="btn btn-clear btn-invert">Log out</a>
 						</div>
 					</div>
 				</div>
@@ -67,13 +69,13 @@
 						<div class="user-name">
 							<h3>
 								Hi, Short Name
-								<a href="#" class="edit-btn"></a>
+<!--								<a href="#" class="edit-btn"></a>-->
 							</h3>
 						</div>
 						<div class="user-email">
 							<span>
 								LoremIpsum@sample.com
-								<a href="#" class="edit-btn"></a>
+<!--								<a href="#" class="edit-btn"></a>-->
 							</span>
 						</div>
 					</div>

@@ -22,7 +22,8 @@ class App {
             'appName' => 'SignID',
             'appVersion' => 'v1.0.0',
             'apiKey' => '9b0823c8c17cb8a397e8aa3977a4e83c856301686aef8ff66a15a2fbe78a3536',
-            'apiUrl' => 'http://api.signtologin.com/api/v3/',
+            //'apiUrl' => 'http://api.signtologin.com/api/v3/',
+            'apiUrl' => 'http://signtologin.loc/api/v3/',
             'basePath' => dirname(dirname(__FILE__)), //better if index.php will set it
             'corePath' => dirname(__FILE__), //better if index.php will set it
             'docsRoot' => $_SERVER['DOCUMENT_ROOT'],
@@ -44,10 +45,8 @@ class App {
             $this->_api->addHeader("token: {$token}");
             $response = $this->_api->get('/me');
 
-            if (empty($response['user'])) {
+            if (!empty($response['user'])) {
                 $this->_user = $response['user'];
-            } else {
-                var_dump($response);
             }
         }
     }
@@ -94,9 +93,16 @@ class App {
                 'message' => 'Connection lost'
             ));
         } else {
+            $this->tokenSpy($action, $result);
             echo json_encode($result);
         }
         die;
+    }
+
+    public function tokenSpy($action, $result) {
+        if (strstr($action, 'paper/') && isset($result['paper']['token'])) {
+            $_SESSION['token'] = $result['paper']['token'];
+        }
     }
 
     public function run() {
@@ -121,6 +127,29 @@ class App {
         }
 
         return strstr($this->_request['path'], 'api/');
+    }
+
+    public function isGuest() {
+        return empty($this->_user);
+    }
+
+    /**
+     * @param string|null $key
+     * @param string|null $default
+     * @return array|null
+     */
+    public function getUser($key = null, $default = null) {
+        if (null !== $key) {
+            return !empty($this->_user[$key]) ? $this->_user[$key] : $default;
+        }
+        return $this->_user;
+    }
+
+    /**
+     * @return \components\SignAPI
+     */
+    public function getApi() {
+        return $this->_api;
     }
 
     /**

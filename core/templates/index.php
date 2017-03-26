@@ -31,14 +31,13 @@
                 </a>
                 <div class="pull-right">
                     <div class="nav navbar-nav navbar-right">
-                        <?php //if ($this->getOwner()->) ?>
-                        <button type="button" class="btn btn-signin" data-toggle="modal"
-                                data-target="#login-email-verification">LOG IN
-                        </button>
-                        <?php //else: ?>
-                        <a href="#" class="btn btn-signin">DASHBOARD
-                        </a>
-                        <?php //endif; ?>
+                        <?php if ($this->getOwner()->isGuest()): ?>
+                            <button type="button" class="btn btn-signin" data-toggle="modal"
+                                    data-target="#login-email-verification">LOG IN
+                            </button>
+                        <?php else: ?>
+                            <a href="dashboard.html" class="btn btn-signin">DASHBOARD</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

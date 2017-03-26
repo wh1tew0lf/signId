@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+/** @var $this \views\Index */
+?><!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -49,10 +51,10 @@
 						<ul class="top-nav navbar-nav">
 							<li><a href="#" class="active">Summary</a></li>
 							<li><a href="activity.html">Activity</a></li>
-							<!--<li><a href="#">Reserved*</a></li>-->
+							<li><a href="#">Reserved*</a></li>
 						</ul>
 						<div class="line-top_buttons">
-							<a href="#" class="btn btn-clear btn-invert">Log out</a>
+							<a href="logout.html" class="btn btn-clear btn-invert">Log out</a>
 						</div>
 					</div>
 				</div>
@@ -66,14 +68,14 @@
 					<div class="user-info">
 						<div class="user-name">
 							<h3>
-								Hi, Short Name
-								<a href="#" class="edit-btn"></a>
+								Hi, <?php echo $this->getOwner()->getUser('firstName', 'user'); ?>
+<!--								<a href="#" class="edit-btn"></a>-->
 							</h3>
 						</div>
 						<div class="user-email">
 							<span>
-								LoremIpsum@sample.com
-								<a href="#" class="edit-btn"></a>
+								 <?php echo $this->getOwner()->getUser('email', 'email'); ?>
+<!--								<a href="#" class="edit-btn"></a>-->
 							</span>
 						</div>
 					</div>
@@ -88,6 +90,29 @@
 			</div>
 			<div class="devices-contant container">
 				<ul class="devices-list col-md-8">
+                    <?php if (!empty($devices)): ?>
+                        <?php foreach ($devices as $device): ?>
+                            <li class="device online-device">
+                                <div class="device_image hidden-xs text-right col-md-1 col-sm-1">
+                                    <img src="assets/img/devices/sumsung.svg" alt="<?php echo $device['name']; ?>">
+                                </div>
+                                <a data-target="#device2"
+                                   class="device_info online-device collapse-btn col-md-4 col-sm-4">
+                                    <b><?php echo $device['model']; ?></b>
+                                    <span>ID: <?php echo $device['uid']; ?></span>
+                                </a>
+                                <div class="device_btn-group collapse col-md-7 col-sm-7" id="device2">
+                                    <ul>
+                                        <li><a href="#" class="btn">Disconect</a></li>
+                                        <li><a href="#" class="btn">Make Main</a></li>
+                                        <li><a href="#" class="btn btn-clear">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <i>You have no devices yet!</i>
+                    <?php endif; ?>
 					<!--<li class="device main-device online-device">-->
 						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
 							<!--<img src="assets/img/devices/iphone.svg" alt="Device name">-->
@@ -102,22 +127,7 @@
 							<!--</ul>-->
 						<!--</div>-->
 					<!--</li>-->
-					<!--<li class="device online-device">-->
-						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
-							<!--<img src="assets/img/devices/ipad.svg" alt="Device name">-->
-						<!--</div>-->
-						<!--<a data-target="#device2" class="device_info online-device collapse-btn col-md-4 col-sm-4">-->
-							<!--<b>iPad</b>-->
-							<!--<span>ID: 12345678910111213</span>-->
-						<!--</a>-->
-						<!--<div class="device_btn-group collapse col-md-7 col-sm-7" id="device2">-->
-							<!--<ul>-->
-								<!--<li><a href="#" class="btn">Disconect</a></li>-->
-								<!--<li><a href="#" class="btn">Make Main</a></li>-->
-								<!--<li><a href="#" class="btn btn-clear">Remove</a></li>-->
-							<!--</ul>-->
-						<!--</div>-->
-					<!--</li>-->
+
 					<!--<li class="device online-device">-->
 						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
 							<!--<img src="assets/img/devices/sumsung.svg" alt="Device name">-->
@@ -189,7 +199,7 @@
 	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		
 	<script src="./assets/js/main.js"></script>
-	<script src="./js/dash.js"></script>
+<!--	<script src="./js/dash.js"></script>-->
 
 </body>
 </html>

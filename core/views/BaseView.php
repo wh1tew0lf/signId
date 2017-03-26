@@ -11,11 +11,18 @@ abstract class BaseView {
         $this->_owner = $owner;
     }
 
-    abstract public function getTemplate();
-
-    public function render() {
+    public function getTemplate() {
         $path = $this->getOwner()->getConfig('corePath');
-        require_once "{$path}/templates/{$this->getTemplate()}.php";
+        $reflection = new \ReflectionClass($this);
+        $template = strtolower($reflection->getShortName());
+        return "{$path}/templates/{$template}.php";
+    }
+
+    abstract public function render();
+
+    protected function renderTemplate($data = array()) {
+        extract($data);
+        require_once $this->getTemplate();
     }
 
     /**

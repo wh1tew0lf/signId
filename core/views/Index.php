@@ -4,8 +4,8 @@ namespace views;
 
 class Index extends BaseView {
 
-    public function getTemplate() {
-        return 'index';
+    public function render() {
+        $this->renderTemplate();
     }
 
 }

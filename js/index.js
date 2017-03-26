@@ -1,61 +1,72 @@
 'use strict';
 
-$(function() {
+var app = {
+    navigateByUrl: function (url) {
+        document.location.href = url;
+    },
 
-    function showMessageModal(message) {
+    showMessageModal: function (message) {
         $('#login-email-verification').modal('hide');
         $('#sign-verification').find('.message').text(message);
         $('#sign-verification').modal('show');
-    }
+    },
 
-    function navigateByUrl(url) {
-        document.location.href = url;
-    }
-
-    function checkPaper(uid) {
+    checkPaper: function(uid) {
+        var $this = this;
         $.ajax({
-            url: "api/index.php?action=paper/" + uid,
+            url: "api/paper/" + uid,
             type: "get",
             dataType: "json"
         }).then(function(data) {
-            if (data.signed && data.token) {
-                console.log(data);
-                if ('undefined' != typeof Storage) {
-                    localStorage.setItem('token', data.token);
+            if (data.paper.signed && data.paper.token) {
+                if ('undefined' !== typeof Storage) {
+                    localStorage.setItem('token', data.paper.token);
                 }
-                navigateByUrl('/dashboard.html');
+                $this.navigateByUrl('dashboard.html');
             } else {
-                setTimeout(checkPaper.bind(null, uid), 300);
+                if (!data.paper.expired) {
+                    setTimeout($this.checkPaper.bind($this, uid), 650);
+                } else {
+                    $this.showMessageModal('Auth request expired. Try another time');
+                }
             }
         });
-    }
+    },
 
-    $('#sign-in').on('click', function (event) {
+    onClick: function (event) {
         event.preventDefault();
+        var $this = this;
         var email = $('#email').val();
         var post = {
             title: "SignInCloud Sign In",
-            hash: Math.random(),
+            hash: Math.random().toString().substr(2),
             type: 1
         };
         if (email) {
             $.ajax({
-                url: "api/index.php?action=user/" + email + "/paper",
+                url: "api/user/" + email + "/paper",
                 type: "post",
                 data: post,
                 dataType: "json"
             }).then(function (data) {
                 if (data.status) {
-                    showMessageModal(data.message);
+                    $this.showMessageModal(data.message);
                 } else if (data.uid) {
-                    checkPaper(uid);
-                    showMessageModal('Please Sign on device');
-                    console.log(data);
+                    $this.checkPaper(data.uid);
+                    $this.showMessageModal('Please Sign on device');
                 }
             }).fail(function (error) {
-                showMessageModal('Connection lost');
+                $this.showMessageModal('Connection lost');
                 console.error(error);
             });
         }
-    });
+    },
+
+    init: function () {
+        $('#sign-in').on('click', this.onClick.bind(this));
+    }
+};
+
+$(function() {
+    app.init();
 });
