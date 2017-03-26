@@ -21,9 +21,12 @@
     <div class="navbar navbar-static-top">
         <div class="container">
             <div class="navbar-collapse">
-                <a href="#"><img class="navbar-brand"
-                                 src="http://cdn.getintenso.com/demo/media/logo/image/demo/loremipsum-logo.png"
-                                 alt="logo"></a>
+                <a class="logo" href="#">
+                    <img class="navbar-brand"
+                                 src="./img/logo.png"
+                                 alt="logo">
+                    SignID
+                </a>
                 <div class="pull-right">
                     <div class="nav navbar-nav navbar-right ">
                         <button type="button" class="btn btn-signin" data-toggle="modal"
@@ -73,9 +76,12 @@
                 <button class="close close-cross" type="button" data-dismiss="modal">&times</button>
                 <div class="container-fluid " id="email-input-container">
 
-                    <a href="#"><img class="logo-on-modal"
-                                     src="http://cdn.getintenso.com/demo/media/logo/image/demo/loremipsum-logo.png"
-                                     alt="logo"></a>
+                    <a class="logo" href="#">
+                        <img class="logo-on-modal"
+                                     src="./img/logo.png"
+                                     alt="logo">
+                        SignID
+                    </a>
                     <form>
                         <div class="group">
                             <input type="email" id="email" required>
@@ -110,9 +116,12 @@
                 <button class="close close-cross" type="button" data-dismiss="modal">&times</button>
                 <div class="container-fluid">
 
-                    <a href="#"><img class="logo-on-modal"
-                                     src="http://cdn.getintenso.com/demo/media/logo/image/demo/loremipsum-logo.png"
-                                     alt="logo"></a>
+                    <a class="logo" href="#">
+                        <img class="logo-on-modal"
+                                     src="./img/logo.png"
+                                     alt="logo">
+                        SignID
+                    </a>
                     <form>
                         <div class="text-modal-wait">
                             <p class="center message" align="center">Please Sign on device</p>

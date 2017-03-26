@@ -2,133 +2,132 @@
 Author: Daniel Yuzek 
 */
 
-.banner{
-	background: url('../img/bg-banner.jpg') no-repeat scroll center top;
-	background-size: cover;
-	min-height: 580px;
-	position: relative;	
-	display: block;
+.banner {
+    background: url('../img/bg-banner.jpg') no-repeat scroll center top;
+    background-size: cover;
+    min-height: 580px;
+    position: relative;
+    display: block;
 }
 
-.bg-color{
-	background: rgba(0,113,188, 0.20);
-	min-height: 580px;
-	height: 100%;
+.bg-color {
+    background: rgba(0, 113, 188, 0.20);
+    min-height: 580px;
+    height: 100%;
 }
 
 .navbar {
-	margin-bottom: 0px;
+    margin-bottom: 0;
 }
-
 
 .text-modal-wait {
-	color: #999;
-	font-family: "Roboto";
-	font-size: 14px;
-	padding-bottom: 40px;
+    color: #999;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    padding-bottom: 40px;
 }
 
-.text-dec{
-	font-size:35px;
-	padding: 90px 20% 20px 20%;
-	text-transform: uppercase;
-	color: #fff;
-	font-family: 'Titillium Web';
+.text-dec {
+    font-size: 35px;
+    padding: 90px 20% 20px 20%;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Titillium Web', sans-serif;
 }
 
-.small-text{
-	font-size: 14px;
-	font-family: 'Roboto';
-	color: #fff;
-	font-weight: bold;
-	text-transform: uppercase;
-	padding: 10px 40% 50px 40%;
+.small-text {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 40% 50px 40%;
 }
 
-.store-container{
-	background-color: rgba(51, 51, 51, 1);
-	border-radius: 7px;
+.store-container {
+    background-color: rgba(51, 51, 51, 1);
+    border-radius: 7px;
 }
 
-.margin-space-right{
-	margin-right: 20px;
+.margin-space-right {
+    margin-right: 20px;
 }
 
 .btn-group li a {
-	background-color: #333;
-	background-repeat: no-repeat;
-	background-position: center;
-	border-radius: 4px;
-	background-clip: padding-box;
-	display: block;
-	width: 200px;
-	height: 60px;
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+    background-clip: padding-box;
+    display: block;
+    width: 200px;
+    height: 60px;
 }
 
 .btn-group li.btn-appstore a {
-	background-image: url('../img/appstore.png');
-	background-size: 85%;
+    background-image: url('../img/appstore.png');
+    background-size: 85%;
 }
+
 .btn-group li.btn-googleplay a {
-	background-image: url('../img/googleplay.png');
-	background-size: 85%;
+    background-image: url('../img/googleplay.png');
+    background-size: 85%;
 }
 
 .btn-signin {
-	padding: 7px 25px;
-	border-radius: 5px;
-	color: #0071BB;
-	font-family: "Roboto";
-	font-weight: 800;
-	background-color: #fff;
-	border-color: #0071BB;
+    padding: 7px 25px;
+    border-radius: 5px;
+    color: #0071BB;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    background-color: #fff;
+    border-color: #0071BB;
 }
+
 .btn-signin:focus,
 .btn-signin.focus {
-  color: #0071BB;
-  background-color: #fff;
-  border-color: #0071BB;
+    color: #0071BB;
+    background-color: #fff;
+    border-color: #0071BB;
 }
+
 .btn-signin:hover {
-  color: #0071BB;
-  background-color: #fff;
-  border-color: #0071BB;
+    color: #0071BB;
+    background-color: #fff;
+    border-color: #0071BB;
 }
+
 .btn-signin:active,
 .btn-signin.active,
 .open > .dropdown-toggle.btn-signin {
-  color: #0071BB;
-  background-color: #fff;
-  border-color: #0071BB;
+    color: #0071BB;
+    background-color: #fff;
+    border-color: #0071BB;
 }
 
 .btn-next {
-	margin-top: -25px;
-	margin-bottom: 20px;
-	width: 100%;
+    margin-top: -25px;
+    margin-bottom: 20px;
+    width: 100%;
 }
-
 
 .close-cross {
-	position: relative;
-	top: 0px;
-	right: 0px;
-	margin-top: -11px;
-	margin-right: -6px;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    margin-top: -11px;
+    margin-right: -6px;
 }
-
 
 /* BLOOR WHOLE BACKGROUD IN MODAL MODE */
 
-
 /*LOGO on modal*/
 .logo-on-modal {
-	padding: 20px 5px;
-	max-width: 100%;
+    padding: 20px 5px;
+    max-width: 100%;
 }
 
-
-body.modal-open .supreme-container{
+body.modal-open .supreme-container {
     -webkit-filter: blur(4px);
     -moz-filter: blur(4px);
     -o-filter: blur(4px);
@@ -136,178 +135,203 @@ body.modal-open .supreme-container{
     filter: blur(4px);
 }
 
-
-
 /*	MODAL WINDOW ################### */
 #sign-verification {
-	margin-top: 5%;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 300px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
 }
 
 #login-email-verification {
-	margin-top: 5%;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 300px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
 }
+
 #email-input-container {
-	font-family:'roboto';
-	width:100%; 
-	display:block; 
-	background:#FFF;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    display: block;
+    background: #FFF;
 }
+
 #email-input-container .group {
-	position:relative; 
-  	margin-bottom:45px; 
-  	margin-top: 0px;
+    position: relative;
+    margin-bottom: 45px;
+    margin-top: 0px;
 }
 
 #email-input-container input {
-	font-size:18px;
-	padding:10px 10px 10px 1px;
-	display:block;
-	width:100%;
-	border:none;
-	border-bottom:1px solid #757575;
+    font-size: 18px;
+    padding: 10px 10px 10px 1px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575;
 }
 
-#email-input-container input:focus { 
-	outline:none; 
+#email-input-container input:focus {
+    outline: none;
 }
-
 
 /*	LABEL ###################### */
 #email-input-container label {
-	color:#999; 
-	font-size:14px;
-	font-weight:normal;
-	position:absolute;
-	pointer-events:none;
-	left:1px;
-	top: 18px;
-	transition:0.2s ease all; 
-	-moz-transition:0.2s ease all; 
-	-webkit-transition:0.2s ease all;
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 1px;
+    top: 18px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
 }
 
-#email-input-container input:focus ~ label, #email-input-container input:valid ~ label        {
-	top:-12px;	
-	font-size:12px;
-	color:#999;
+#email-input-container input:focus ~ label, #email-input-container input:valid ~ label {
+    top: -12px;
+    font-size: 12px;
+    color: #999;
 }
 
 /*	BARS ###################### */
 
-#email-input-container .bar { 
-	position:relative;
-	display:block;
-	width:100%;
+#email-input-container .bar {
+    position: relative;
+    display: block;
+    width: 100%;
 }
 
-#email-input-container .bar:before, #email-input-container .bar:after     {
-	content:'';
-	height:2px; 
-	width:0;
-	bottom:1px; 
-	position:absolute;
-	background:#999; 
-	transition:0.2s ease all; 
-	-moz-transition:0.2s ease all; 
-	-webkit-transition:0.2s ease all;
+#email-input-container .bar:before, #email-input-container .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #999;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
 }
+
 #email-input-container .bar:before {
-	left:50%;
-}
-#email-input-container .bar:after {
-	right:50%; 
+    left: 50%;
 }
 
+#email-input-container .bar:after {
+    right: 50%;
+}
 
 /* active state */
 #email-input-container input:focus ~ .bar:before, #email-input-container input:focus ~ .bar:after {
-  width:50%;
+    width: 50%;
 }
 
 /* HIGHLIGHTER ================================== */
 #email-input-container .highlight {
-  position:absolute;
-  height:60%; 
-  width:100px; 
-  top:25%; 
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 /* active state */
 #email-input-container input:focus ~ .highlight {
-	-webkit-animation:inputHighlighter 0.3s ease;
-	-moz-animation:inputHighlighter 0.3s ease;
-	animation:inputHighlighter 0.3s ease;
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
 }
 
 /* ANIMATIONS for modal================ */
 @-webkit-keyframes inputHighlighter {
-    from { background:#5264AE; }
-  to    { width:0; background:transparent; }
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
 }
+
 @-moz-keyframes inputHighlighter {
-    from { background:#5264AE; }
-  to    { width:0; background:transparent; }
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
 }
+
 @keyframes inputHighlighter {
-    from { background:#5264AE; }
-  to    { width:0; background:transparent; }
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
 }
-
-
-
-
 
 @media (min-width: 20px) and (max-width: 450px) {
-	.text-dec{
-		font-size:30px;
-		padding: 30px 10% 10px 10%;
-		text-transform: uppercase;
-		color: #fff;
-		font-family: 'Titillium Web';
-	}
-	.small-text{
-		font-size: 12px;
-		padding: 10px 40% 40px 40%;
+    .text-dec {
+        font-size: 30px;
+        padding: 30px 10% 10px 10%;
+        text-transform: uppercase;
+        color: #fff;
+        font-family: 'Titillium Web', sans-serif;
+    }
 
-	}
+    .small-text {
+        font-size: 12px;
+        padding: 10px 40% 40px 40%;
+
+    }
 }
 
 .navbar-nav {
-	margin: 7.5px 15px;
+    margin: 7.5px 15px;
 }
 
 .navbar-right {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 .modal-backdrop {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1040;
-	background-color: #fff;
-	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-	filter: blur(5px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #fff;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 .modal-header {
-	padding: 5px;
-	border-top-right-radius: 4px;
-	border-top-left-radius: 4px;
-	border-bottom: 1px solid #e5e5e5;
-	background-color: #534741;
+    padding: 5px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #534741;
+}
+
+.logo {
+    line-height: 48px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+}
+
+.logo img {
+    height: 48px;
+    padding: 0 0 0 30px;
 }
