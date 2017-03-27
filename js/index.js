@@ -63,6 +63,7 @@ var app = {
     },
 
     init: function () {
+        $('#sign-in-form').on('submit', this.onClick.bind(this));
         $('#sign-in').on('click', this.onClick.bind(this));
     }
 };

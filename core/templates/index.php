@@ -88,7 +88,7 @@
                                      alt="logo">
                         SignID
                     </a>
-                    <form>
+                    <form id="sign-in-form">
                         <div class="group">
                             <input type="email" id="email" required>
                             <span class="highlight"></span>
