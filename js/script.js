@@ -33,7 +33,7 @@ var app = {
         });
     },
 
-    onClick: function (event) {
+    loginFormSubmit: function (event) {
         event.preventDefault();
         var $this = this;
         var email = $('#email').val();
@@ -62,9 +62,49 @@ var app = {
         }
     },
 
+
+    disconnectDevice: function (event) {
+        event.preventDefault();
+    },
+
+    connectDevice: function (event) {
+        event.preventDefault();
+    },
+
+    makeMainDevice: function (event) {
+        event.preventDefault();
+    },
+
+    removeDevice: function (event) {
+        event.preventDefault();
+        var uid = $(event.target).data('id');
+        if (confirm('Are you sure to remove this device?')) {
+            $.ajax({
+                url: "api/me/device/" + uid,
+                type: "delete",
+                dataType: "json"
+            }).then(function(data) {
+                if (!data.status) {
+                    $('#uid-' + uid).remove();
+                } else {
+                    console.error(data.message);
+                    alert(data.message);
+                }
+            }).fail(function (error) {
+                console.error(error);
+                alert('Connection lost');
+            });
+        }
+    },
+
     init: function () {
-        $('#sign-in-form').on('submit', this.onClick.bind(this));
-        $('#sign-in').on('click', this.onClick.bind(this));
+        $('#sign-in-form').on('submit', this.loginFormSubmit.bind(this));
+        $('#sign-in').on('click', this.loginFormSubmit.bind(this));
+
+        $(document).on('click', '.disconnect-device', this.disconnectDevice.bind(this));
+        $(document).on('click', '.connect-device', this.connectDevice.bind(this));
+        $(document).on('click', '.make-main-device', this.makeMainDevice.bind(this));
+        $(document).on('click', '.remove-device', this.removeDevice.bind(this));
     }
 };
 

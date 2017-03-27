@@ -11,14 +11,21 @@ abstract class BaseView {
         $this->_owner = $owner;
     }
 
-    public function getTemplate() {
+    public function getTemplate($template = false) {
         $path = $this->getOwner()->getConfig('corePath');
-        $reflection = new \ReflectionClass($this);
-        $template = strtolower($reflection->getShortName());
+        if (false === $template) {
+            $reflection = new \ReflectionClass($this);
+            $template = strtolower($reflection->getShortName());
+        }
         return "{$path}/templates/{$template}.php";
     }
 
     abstract public function render();
+
+    protected function renderBlock($name, $data = array()) {
+        extract($data);
+        require_once $this->getTemplate($name);
+    }
 
     protected function renderTemplate($data = array()) {
         extract($data);
