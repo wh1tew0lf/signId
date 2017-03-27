@@ -1,2 +1,3 @@
-# signId
-simple proof of concept signId example for SignInCloud.com (SIC :D)
+# SignID
+
+This is a simple proof-of-concept SignID example for  any site, but now for SignInCloud.com.
