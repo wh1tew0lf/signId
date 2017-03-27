@@ -81,10 +81,22 @@ class App {
         $action = isset($this->_request['path']) ?
             trim(str_replace('api/', '', $this->_request['path']), '/') : '';
 
-        if (!empty($_POST)) {
-            $result = $this->_api->post($action, $_POST);
-        } else {
+        $method = isset($_SERVER['REQUEST_METHOD']) ? strtoupper($_SERVER['REQUEST_METHOD']) : 'GET';
+        $data = !empty($_POST) ? $_POST : file_get_contents('php://input');
+
+        if ('GET' === $method) {
             $result = $this->_api->get($action);
+        } elseif ('POST' === $method) {
+            $result = $this->_api->post($action, $data);
+        } elseif ('PUT' === $method) {
+            $result = $this->_api->put($action, $data);
+        } elseif ('DELETE' === $method) {
+            $result = $this->_api->delete($action);
+        } else {
+            echo json_encode(array(
+                'error' => -1,
+                'message' => 'Undefined method'
+            ));
         }
 
         if (empty($result)) {

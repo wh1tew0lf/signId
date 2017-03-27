@@ -10,7 +10,7 @@
 
 	<meta charset="utf-8">
 
-	<title>Заголовок</title>
+	<title><?php echo $this->getOwner()->getConfig('appName'); ?> | Dashboard</title>
 	<meta name="description" content="">
 
 	<link rel="shortcut icon" href="./assets/img/favicon/favicon.ico" type="image/x-icon">
@@ -92,9 +92,17 @@
 				<ul class="devices-list col-md-8">
                     <?php if (!empty($devices)): ?>
                         <?php foreach ($devices as $device): ?>
-                            <li class="device online-device">
+                            <li id="uid-<?php echo $device['uid']; ?>" class="device <?php if ($device['isEnabled']): ?>online-device<?php else: ?>offline-device<?php endif; ?> <?php if ($device['isMain']): ?>main-device<?php endif; ?>">
                                 <div class="device_image hidden-xs text-right col-md-1 col-sm-1">
-                                    <img src="assets/img/devices/sumsung.svg" alt="<?php echo $device['name']; ?>">
+                                    <?php if (stristr($device['model'], 'iphone')) { ?>
+                                        <img src="assets/img/devices/iphone.svg" alt="<?php echo $device['name']; ?>">
+                                    <?php } elseif (stristr($device['model'], 'ipad')) { ?>
+                                        <img src="assets/img/devices/ipad.svg" alt="<?php echo $device['name']; ?>">
+                                    <?php } elseif (stristr($device['model'], 'sumsung')) { ?>
+                                        <img src="assets/img/devices/sumsung.svg" alt="<?php echo $device['name']; ?>">
+                                    <?php } else { ?>
+                                        <img src="assets/img/devices/nexus.svg" alt="<?php echo $device['name']; ?>">
+                                    <?php } ?>
                                 </div>
                                 <a data-target="#device2"
                                    class="device_info online-device collapse-btn col-md-4 col-sm-4">
@@ -103,9 +111,15 @@
                                 </a>
                                 <div class="device_btn-group collapse col-md-7 col-sm-7" id="device2">
                                     <ul>
-                                        <li><a href="#" class="btn">Disconect</a></li>
-                                        <li><a href="#" class="btn">Make Main</a></li>
-                                        <li><a href="#" class="btn btn-clear">Remove</a></li>
+                                        <?php if ($device['isEnabled']): ?>
+                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn disconnect-device">Disconect</a></li>
+                                        <?php else: ?>
+                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn connect-device">Connect</a></li>
+                                        <?php endif; ?>
+                                        <?php if (!$device['isMain']): ?>
+                                            <li><a href="#" class="btn make-main-device">Make Main</a></li>
+                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear remove-device">Remove</a></li>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </li>
@@ -113,69 +127,6 @@
                     <?php else: ?>
                         <i>You have no devices yet!</i>
                     <?php endif; ?>
-					<!--<li class="device main-device online-device">-->
-						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
-							<!--<img src="assets/img/devices/iphone.svg" alt="Device name">-->
-						<!--</div>-->
-						<!--<a data-target="#device1" class="device_info online-device collapse-btn col-md-4 col-sm-4">-->
-							<!--<b>iPhone SE</b>-->
-							<!--<span>ID: 12345678910111213</span>-->
-						<!--</a>-->
-						<!--<div class="device_btn-group collapse col-md-7 col-sm-7" id="device1">-->
-							<!--<ul>-->
-								<!--<li><a href="#" class="btn">Disconect</a></li>-->
-							<!--</ul>-->
-						<!--</div>-->
-					<!--</li>-->
-
-					<!--<li class="device online-device">-->
-						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
-							<!--<img src="assets/img/devices/sumsung.svg" alt="Device name">-->
-						<!--</div>-->
-						<!--<a data-target="#device3" class="device_info online-device collapse-btn col-md-4 col-sm-4">-->
-							<!--<b>Samsung Galaxy Note II</b> -->
-							<!--<span>ID: 12345678910111213</span>-->
-						<!--</a>-->
-						<!--<div class="device_btn-group collapse col-md-7 col-sm-7" id="device3">-->
-							<!--<ul>-->
-								<!--<li><a href="#" class="btn">Disconect</a></li>-->
-								<!--<li><a href="#" class="btn">Make Main</a></li>-->
-								<!--<li><a href="#" class="btn btn-clear">Remove</a></li>-->
-							<!--</ul>-->
-						<!--</div>-->
-					<!--</li>-->
-					<!--<li class="device online-device">-->
-						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
-							<!--<img src="assets/img/devices/nexus.svg" alt="Device name">-->
-						<!--</div>-->
-						<!--<a data-target="#device4" class="device_info online-device collapse-btn col-md-4 col-sm-4">-->
-							<!--<b>Nexus 4</b>-->
-							<!--<span>ID: 12345678910111213</span>-->
-						<!--</a>-->
-						<!--<div class="device_btn-group collapse col-md-7 col-sm-7" id="device4">-->
-							<!--<ul>-->
-								<!--<li><a href="#" class="btn">Disconect</a></li>-->
-								<!--<li><a href="#" class="btn">Make Main</a></li>-->
-								<!--<li><a href="#" class="btn btn-clear">Remove</a></li>-->
-							<!--</ul>-->
-						<!--</div>-->
-					<!--</li>-->
-					<!--<li class="device offline-device">-->
-						<!--<div class="device_image hidden-xs text-right col-md-1 col-sm-1">-->
-							<!--<img src="assets/img/devices/laptop.svg" alt="Device name">-->
-						<!--</div>-->
-						<!--<a data-target="#device5" class="device_info online-device collapse-btn col-md-4 col-sm-4">-->
-							<!--<b>Laptop</b>-->
-							<!--<span>ID: 12345678910111213</span>-->
-						<!--</a>-->
-						<!--<div class="device_btn-group collapse col-md-7 col-sm-7" id="device5">-->
-							<!--<ul>-->
-								<!--<li><a href="#" class="btn">Disconect</a></li>-->
-								<!--<li><a href="#" class="btn">Make Main</a></li>-->
-								<!--<li><a href="#" class="btn btn-clear">Remove</a></li>-->
-							<!--</ul>-->
-						<!--</div>-->
-					<!--</li>-->
 				</ul><!-- end devices-list -->
 			</div>
 		</main>
@@ -199,7 +150,7 @@
 	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		
 	<script src="./assets/js/main.js"></script>
-<!--	<script src="./js/dash.js"></script>-->
+	<script src="./js/dash.js"></script>
 
 </body>
 </html>
