@@ -65,14 +65,65 @@ var app = {
 
     disconnectDevice: function (event) {
         event.preventDefault();
+        var uid = $(event.target).data('id');
+        $.ajax({
+            url: "api/me/device/" + uid,
+            type: "patch",
+            data: {"status": 2},
+            dataType: "json"
+        }).then(function(data) {
+            if (!data.status) {
+                document.location.reload();
+            } else {
+                console.error(data.message);
+                alert(data.message);
+            }
+        }).fail(function (error) {
+            console.error(error);
+            alert('Connection lost');
+        });
     },
 
     connectDevice: function (event) {
         event.preventDefault();
+        var uid = $(event.target).data('id');
+        $.ajax({
+            url: "api/me/device/" + uid,
+            type: "patch",
+            data: {"status": 1},
+            dataType: "json"
+        }).then(function(data) {
+            if (!data.status) {
+                document.location.reload();
+            } else {
+                console.error(data.message);
+                alert(data.message);
+            }
+        }).fail(function (error) {
+            console.error(error);
+            alert('Connection lost');
+        });
     },
 
     makeMainDevice: function (event) {
         event.preventDefault();
+        var uid = $(event.target).data('id');
+        $.ajax({
+            url: "api/me/device/" + uid,
+            type: "patch",
+            data: {"default": 1},
+            dataType: "json"
+        }).then(function(data) {
+            if (!data.status) {
+                document.location.reload();
+            } else {
+                console.error(data.message);
+                alert(data.message);
+            }
+        }).fail(function (error) {
+            console.error(error);
+            alert('Connection lost');
+        });
     },
 
     removeDevice: function (event) {

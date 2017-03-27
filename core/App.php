@@ -22,8 +22,8 @@ class App {
             'appName' => 'SignID',
             'appVersion' => 'v1.0.0',
             'apiKey' => '9b0823c8c17cb8a397e8aa3977a4e83c856301686aef8ff66a15a2fbe78a3536',
-            //'apiUrl' => 'http://api.signtologin.com/api/v3/',
-            'apiUrl' => 'http://signtologin.loc/api/v3/',
+            'apiUrl' => 'http://api.signtologin.com/api/v3/',
+            //'apiUrl' => 'http://signtologin.loc/api/v3/',
             'basePath' => dirname(dirname(__FILE__)), //better if index.php will set it
             'corePath' => dirname(__FILE__), //better if index.php will set it
             'docsRoot' => $_SERVER['DOCUMENT_ROOT'],
@@ -92,11 +92,14 @@ class App {
             $result = $this->_api->put($action, $data);
         } elseif ('DELETE' === $method) {
             $result = $this->_api->delete($action);
+        } elseif ('PATCH' === $method) {
+            $result = $this->_api->patch($action, $data);
         } else {
             echo json_encode(array(
                 'error' => -1,
                 'message' => 'Undefined method'
             ));
+            die;
         }
 
         if (empty($result)) {
