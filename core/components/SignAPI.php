@@ -62,9 +62,20 @@ class SignAPI {
 
     public function post($url, $post, $headers = array()) {
         return $this->_makeRequest($url, $headers, array(
-            CURLOPT_POST => true,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
             CURLOPT_POSTFIELDS => $post
         ));
+    }
+
+    public function put($url, $put, $headers = array()) {
+        return $this->_makeRequest($url, $headers, array(
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $put
+        ));
+    }
+
+    public function delete($url, $headers = array()) {
+        return $this->_makeRequest($url, $headers, array(CURLOPT_CUSTOMREQUEST => 'DELETE'));
     }
 
     /**
