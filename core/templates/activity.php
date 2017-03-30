@@ -14,7 +14,6 @@ $this->renderBlock('_innerHeader', array(
         </ul>
 
         <div class="activity-contant container">
-
             <!-- #activity-sign -->
             <div class="activity-pane col-md-9 col-md-offset-1 fade in active" id="signActivityPane">
                 <div class="row-titles row hidden-xs">
@@ -28,40 +27,38 @@ $this->renderBlock('_innerHeader', array(
                         <span>Where</span>
                     </div>
                 </div>
+                <?php if (!empty($signLogs['logs'])): ?>
                 <ul class="activity-list row">
-                    <li>
-                        <button data-target="#sign2" class="collapse-btn visible-xs">2016.11.23 11.35 pm</button>
-                        <div id="sign2" class="collapse">
-                            <div class="activity-list_row">
-                                <div class="event-column col-md-2 col-sm-2 hidden-xs">
-                                    <span>Sign in</span>
-                                </div>
-                                <div class="device-column col-md-6 col-sm-6">
-                                    <span>Nexus 4 - ID: 23456789012</span>
-                                </div>
-                                <div class="where-column col-md-4 col-sm-4">
-                                    <span>www.amazon.com</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button data-target="#sign1" class="collapse-btn visible-xs">2016.11.23 11.35 pm</button>
-                        <div id="sign1" class="collapse">
-                            <div class="activity-list_row">
-                                <div class="event-column col-md-2 col-sm-2 hidden-xs">
-                                    <span>Sign in</span>
-                                </div>
-                                <div class="device-column col-md-6 col-sm-6">
-                                    <span>Nexus 4 - ID: 23456789012</span>
-                                </div>
-                                <div class="where-column col-md-4 col-sm-4">
-                                    <span>www.amazon.com</span>
+                    <?php foreach($signLogs['logs'] as $signLog): ?>
+                        <li>
+                            <button data-target="#sign2" class="collapse-btn visible-xs">
+                                <?php echo date('Y.m.d h:i a', strtotime($signLog['datetime'])); ?>
+                            </button>
+                            <div id="sign2" class="collapse">
+                                <div class="activity-list_row">
+                                    <div class="event-column col-md-2 col-sm-2 hidden-xs">
+                                        <span>
+                                            <?php echo $signLog['type']; ?>
+                                        </span>
+                                    </div>
+                                    <div class="device-column col-md-6 col-sm-6">
+                                        <span>
+                                            <?php echo $signLog['device']; ?>
+                                        </span>
+                                    </div>
+                                    <div class="where-column col-md-4 col-sm-4">
+                                        <span>
+                                            <?php echo $signLog['domain']; ?>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
+                <?php else: ?>
+                    <i>There are no logs yet.</i>
+                <?php endif; ?>
             </div><!-- end #activity-sign -->
 
             <!-- #activity-device -->
@@ -77,43 +74,35 @@ $this->renderBlock('_innerHeader', array(
                         <span>Device</span>
                     </div>
                 </div>
-                <ul class="activity-list row">
-                    <li>
-                        <button data-target="#device2" class="collapse-btn visible-xs">2016.11.23 11.35 pm</button>
-                        <div id="device2" class="collapse">
-                            <div class="activity-list_row">
-                                <div class="date-column col-md-3 col-sm-3 hidden-xs">
-                                    <span>2016.11.23 11.35 pm</span>
+                <?php if (!empty($deviceLogs['logs'])): ?>
+                    <ul class="activity-list row">
+                        <?php foreach($deviceLogs['logs'] as $deviceLog): ?>
+                            <li>
+                                <button data-target="#device2" class="collapse-btn visible-xs">
+                                    <?php echo date('Y.m.d h:i a', strtotime($deviceLog['datetime'])); ?>
+                                </button>
+                                <div id="device2" class="collapse">
+                                    <div class="activity-list_row">
+                                        <div class="date-column col-md-3 col-sm-3 hidden-xs">
+                                            <span>
+                                                <?php echo date('Y.m.d h:i a', strtotime($deviceLog['datetime'])); ?>
+                                            </span>
+                                        </div>
+                                        <div class="event-column event-icon connected col-md-4 col-sm-4">
+                                            <span><?php echo $deviceLog['action']; ?></span>
+                                        </div>
+                                        <div class="device-column col-md-5 col-sm-5">
+                                            <span><?php echo $deviceLog['device']; ?></span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="event-column event-icon connected col-md-4 col-sm-4">
-                                    <span>Connected</span>
-                                </div>
-                                <div class="device-column col-md-5 col-sm-5">
-                                    <span>Nexus 4 - ID: 23456789012</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button data-target="#device1" class="collapse-btn visible-xs">2016.11.23 11.35 pm</button>
-                        <div id="device1" class="collapse">
-                            <div class="activity-list_row">
-                                <div class="date-column col-md-3 col-sm-3 hidden-xs">
-                                    <span>2016.11.23 11.35 pm</span>
-                                </div>
-                                <div class="event-column event-icon mmain col-md-4 col-sm-4">
-                                    <span>Made Main</span>
-                                </div>
-                                <div class="device-column col-md-5 col-sm-5">
-                                    <span>iPhone SE - ID: 112345678910111213</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else: ?>
+                    <i>There are no logs yet.</i>
+                <?php endif; ?>
             </div><!-- end #activity-device -->
-
         </div>
-
     </main>
 <?php $this->renderBlock('_innerFooter'); ?>

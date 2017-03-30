@@ -9,7 +9,11 @@ class Activity extends BaseView {
             header('Location: index.html');
             die;
         }
-        $this->renderTemplate();
+
+        $this->renderTemplate(array(
+            'deviceLogs' => $this->getOwner()->getApi()->get('/me/logs/devices'),
+            'signLogs' => $this->getOwner()->getApi()->get('/me/logs/signs')
+        ));
     }
 
 }
