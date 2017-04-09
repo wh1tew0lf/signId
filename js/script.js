@@ -53,7 +53,7 @@ var app = {
                     $this.showMessageModal(data.message);
                 } else if (data.uid) {
                     $this.checkPaper(data.uid);
-                    $this.showMessageModal('Please Sign on device');
+                    $this.showMessageModal('Please sign on your main device');
                 }
             }).fail(function (error) {
                 $this.showMessageModal('Connection lost');

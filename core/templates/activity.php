@@ -17,10 +17,13 @@ $this->renderBlock('_innerHeader', array(
             <!-- #activity-sign -->
             <div class="activity-pane col-md-9 col-md-offset-1 fade in active" id="signActivityPane">
                 <div class="row-titles row hidden-xs">
+                    <div class="col-md-3 col-sm-3">
+                        <span>Time</span>
+                    </div>
                     <div class="col-md-2 col-sm-2">
                         <span>Event</span>
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-3 col-sm-3">
                         <span>Device</span>
                     </div>
                     <div class="col-md-4 col-sm-4">
@@ -36,12 +39,17 @@ $this->renderBlock('_innerHeader', array(
                             </button>
                             <div id="sign2" class="collapse">
                                 <div class="activity-list_row">
+                                    <div class="time-column col-md-3 col-sm-3 hidden-xs">
+                                        <span>
+                                            <?php echo date('Y.m.d h:i a', strtotime($signLog['datetime'])); ?>
+                                        </span>
+                                    </div>
                                     <div class="event-column col-md-2 col-sm-2 hidden-xs">
                                         <span>
                                             <?php echo $signLog['type']; ?>
                                         </span>
                                     </div>
-                                    <div class="device-column col-md-6 col-sm-6">
+                                    <div class="device-column col-md-3 col-sm-3">
                                         <span>
                                             <?php echo $signLog['device']; ?>
                                         </span>
@@ -57,7 +65,7 @@ $this->renderBlock('_innerHeader', array(
                     <?php endforeach; ?>
                 </ul>
                 <?php else: ?>
-                    <i>There are no logs yet.</i>
+                    <p class="text-center"><i>There are no logs yet.</i></p>
                 <?php endif; ?>
             </div><!-- end #activity-sign -->
 
@@ -100,7 +108,7 @@ $this->renderBlock('_innerHeader', array(
                         <?php endforeach; ?>
                     </ul>
                 <?php else: ?>
-                    <i>There are no logs yet.</i>
+                    <p class="text-center"><i>There are no logs yet.</i></p>
                 <?php endif; ?>
             </div><!-- end #activity-device -->
         </div>

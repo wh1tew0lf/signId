@@ -33,6 +33,7 @@ class App {
                 str_replace('index.php', '', $_SERVER['PHP_SELF']),
             'offset' => trim(str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname(dirname(__FILE__))), '/')
         ), $config);
+        date_default_timezone_set('America/Los_Angeles');
     }
 
     public function processState() {

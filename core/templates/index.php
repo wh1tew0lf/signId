@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="row">
                     <div class="banner-text text-center">
-                        <h1 class="text-dec">SingInCloud - realtime, cloud-based handwritten signature authentication
+                        <h1 class="text-dec">SingId - realtime, cloud-based handwritten signature authentication
                             platform
                         </h1>
                         <p class="small-text">Sign Up With App From</p>
