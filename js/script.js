@@ -38,7 +38,7 @@ var app = {
         var $this = this;
         var email = $('#email').val();
         var post = {
-            title: "SignInCloud Sign In",
+            title: "SignInCloud.com",
             hash: Math.random().toString().substr(2),
             type: 1
         };
@@ -67,8 +67,8 @@ var app = {
         event.preventDefault();
         var uid = $(event.target).data('id');
         $.ajax({
-            url: "api/me/device/" + uid,
-            type: "patch",
+            url: "api/me/device/" + uid + "/status",
+            type: "put",
             data: {"status": 2},
             dataType: "json"
         }).then(function(data) {
@@ -88,8 +88,8 @@ var app = {
         event.preventDefault();
         var uid = $(event.target).data('id');
         $.ajax({
-            url: "api/me/device/" + uid,
-            type: "patch",
+            url: "api/me/device/" + uid + "/status",
+            type: "put",
             data: {"status": 1},
             dataType: "json"
         }).then(function(data) {
