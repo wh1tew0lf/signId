@@ -42,26 +42,36 @@ var app = {
             hash: Math.random().toString().substr(2),
             type: 1
         };
+
+        var pattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
         if (email) {
-            $.ajax({
-                url: "api/user/" + email + "/paper",
-                type: "post",
-                data: post,
-                dataType: "json"
-            }).then(function (data) {
-                if (data.status) {
-                    $this.showMessageModal(data.message);
-                } else if (data.uid) {
-                    $this.checkPaper(data.uid);
-                    $this.showMessageModal('Please sign on your main device');
-                }
-            }).fail(function (error) {
-                $this.showMessageModal('Connection lost');
-                console.error(error);
-            });
+            if (!pattern.test(email)) {
+                $this.showMessageModal('Email is invalid');
+            } else {
+                $.ajax({
+                    url: "api/user/" + email + "/paper",
+                    type: "post",
+                    data: post,
+                    dataType: "json"
+                }).then(function (data) {
+                    if (data.status) {
+                        if (404 === data.status) {
+                            $this.showMessageModal('Please use registration option in the app to create an account');
+                        } else {
+                            $this.showMessageModal(data.message);
+                        }
+                    } else if (data.uid) {
+                        $this.checkPaper(data.uid);
+                        $this.showMessageModal('Please sign on your main device');
+                    }
+                }).fail(function (error) {
+                    $this.showMessageModal('Connection lost');
+                    console.error(error);
+                });
+            }
         }
     },
-
 
     disconnectDevice: function (event) {
         event.preventDefault();
@@ -156,6 +166,9 @@ var app = {
         $(document).on('click', '.connect-device', this.connectDevice.bind(this));
         $(document).on('click', '.make-main-device', this.makeMainDevice.bind(this));
         $(document).on('click', '.remove-device', this.removeDevice.bind(this));
+        $(document.body).on('hide.bs.modal, hidden.bs.modal', function () {
+            $(document.body).css('padding-right', 0);
+        });
     }
 };
 

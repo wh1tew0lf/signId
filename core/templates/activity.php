@@ -56,7 +56,11 @@ $this->renderBlock('_innerHeader', array(
                                     </div>
                                     <div class="where-column col-md-4 col-sm-4">
                                         <span>
-                                            <?php echo $signLog['domain']; ?>
+                                            <?php if ('add device' == strtolower($signLog['type'])): ?>
+                                                Mobile
+                                            <?php else: ?>
+                                                <?php echo $signLog['domain']; ?>
+                                            <?php endif; ?>
                                         </span>
                                     </div>
                                 </div>
