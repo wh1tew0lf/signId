@@ -34,12 +34,12 @@ $this->renderBlock('_innerHeader', array(
                             <div class="device_btn-group collapse col-md-7 col-sm-7" id="device2">
                                 <ul>
                                     <?php if (!$device['isMain']): ?>
-                                        <?php if ($device['isEnabled']): ?>
-                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn disconnect-device">Disconect</a></li>
-                                        <?php else: ?>
-                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn connect-device">Connect</a></li>
-                                        <?php endif; ?>
                                         <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn make-main-device">Make Main</a></li>
+                                        <?php if ($device['isEnabled']): ?>
+                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear disconnect-device">Disconect</a></li>
+                                        <?php else: ?>
+                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear connect-device">Connect</a></li>
+                                        <?php endif; ?>
                                         <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear remove-device">Remove</a></li>
                                     <?php endif; ?>
                                 </ul>
