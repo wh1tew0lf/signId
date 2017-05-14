@@ -51,8 +51,9 @@
                     <ul class="top-nav navbar-nav">
                         <li><a href="dashboard.html" <?php if (isset($active) && ('dashboard' === $active)): ?>class="active"<?php endif;?>>Summary</a></li>
                         <li><a href="activity.html" <?php if (isset($active) && ('activity' === $active)): ?>class="active"<?php endif;?>>Activity</a></li>
-                        <li><a href="/demo-shop/">Demo shop</a></li>
-                        <li><a href="#">Reserved*</a></li>
+                        <li><a href="/demo-shop/?email=<?php echo $this->getOwner()->getUser('email', ''); ?>">Sign in cloud demo page</a></li>
+                        <li><a href="/signature/?uid=<?php echo $this->getOwner()->getUser('uid', ''); ?>">Signature</a></li>
+<!--                        <li><a href="#">Reserved*</a></li>-->
                     </ul>
                     <div class="line-top_buttons">
                         <a href="logout.html" class="btn btn-clear btn-invert">Log out</a>

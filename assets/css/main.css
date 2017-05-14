@@ -1,4 +1,4 @@
- GLOBAL */
+/* GLOBAL */
 
 *::-webkit-input-placeholder {
 	color: #666;
@@ -53,7 +53,6 @@ html.js .loader_inner {
 }
 
 body {
-	font-family: sans-serif;
 	font-size: 16px;
 	min-width: 320px;
 	position: relative;
@@ -431,6 +430,9 @@ body {
 	font-size: 14px;
 	color: #808080;
 	border-bottom: 1px solid #808080;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .event-column.event-icon span:before {
