@@ -333,5 +333,9 @@ body.modal-open .supreme-container {
 
 .logo img {
     height: 48px;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 75px;
+}
+
+#sign-in-form {
+    margin-top: 20px;
 }

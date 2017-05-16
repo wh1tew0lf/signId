@@ -33,7 +33,7 @@
                     <img class="navbar-brand"
                                  src="./img/logo.png"
                                  alt="logo">
-                    <?php echo $this->getOwner()->getConfig('appName'); ?>
+                    <?php //echo $this->getOwner()->getConfig('appName'); ?>
                 </a>
                 <div class="pull-right">
                     <div class="nav navbar-nav navbar-right">
@@ -92,7 +92,7 @@
                         <img class="logo-on-modal"
                                      src="./img/logo.png"
                                      alt="logo">
-                        SignID
+                        <?php //echo $this->getOwner()->getConfig('appName'); ?>
                     </a>
                     <form id="sign-in-form">
                         <div class="group">
@@ -132,7 +132,7 @@
                         <img class="logo-on-modal"
                                      src="./img/logo.png"
                                      alt="logo">
-                        SignID
+                        <?php //echo $this->getOwner()->getConfig('appName'); ?>
                     </a>
                     <form>
                         <div class="text-modal-wait">
