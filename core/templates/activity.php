@@ -9,7 +9,7 @@ $this->renderBlock('_innerHeader', array(
     <main class="main">
 
         <ul class="activity-tabs container">
-            <li><a href="#signActivityPane" class="active">Signs</a></li>
+            <li><a href="#signActivityPane" class="active">Signatures</a></li>
             <li><a href="#deviceActivityPane">Devices</a></li>
         </ul>
 

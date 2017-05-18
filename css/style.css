@@ -339,3 +339,7 @@ body.modal-open .supreme-container {
 #sign-in-form {
     margin-top: 20px;
 }
+
+img.navbar-brand {
+    margin-top: 5px;
+}

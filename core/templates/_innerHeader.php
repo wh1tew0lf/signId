@@ -51,8 +51,8 @@
                     <ul class="top-nav navbar-nav">
                         <li><a href="dashboard.html" <?php if (isset($active) && ('dashboard' === $active)): ?>class="active"<?php endif;?>>Summary</a></li>
                         <li><a href="activity.html" <?php if (isset($active) && ('activity' === $active)): ?>class="active"<?php endif;?>>Activity</a></li>
-                        <li><a href="/demo-shop/?email=<?php echo $this->getOwner()->getUser('email', ''); ?>" target="_blank">Demo - online shopping</a></li>
-                        <li><a href="/signature/?uid=<?php echo $this->getOwner()->getUser('uid', ''); ?>" target="_blank">Demo - document sign</a></li>
+                        <li><a href="/demo-shop/?email=<?php echo $this->getOwner()->getUser('email', ''); ?>" target="_blank">Demo online shopping</a></li>
+                        <li><a href="/signature/?uid=<?php echo $this->getOwner()->getUser('uid', ''); ?>" target="_blank">Demo document sign</a></li>
 <!--                        <li><a href="#">Reserved*</a></li>-->
                     </ul>
                     <div class="line-top_buttons">
