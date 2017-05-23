@@ -36,7 +36,7 @@ $this->renderBlock('_innerHeader', array(
                                     <?php if (!$device['isMain']): ?>
                                         <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn make-main-device">Make Main</a></li>
                                         <?php if ($device['isEnabled']): ?>
-                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear disconnect-device">Disconect</a></li>
+                                            <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear disconnect-device">Disconnect</a></li>
                                         <?php else: ?>
                                             <li><a data-id="<?php echo $device['uid']; ?>" href="#" class="btn btn-clear connect-device">Connect</a></li>
                                         <?php endif; ?>
